@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>async-form Examples</title>
+</head>
+<body>
+
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="file" name="my-file" id="my-file">
+</form>
+
+<script type="text/javascript" src="async-form.js"></script>
+<script type="text/javascript">
+    var aform = require('async-form');
+
+    document.getElementById('my-file').addEventListener('change', function (e) {
+        aform(e.target);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "author": "drk <drk@diy.org> (drk.es)",
+  "name": "async-form",
+  "description": "XHR forms w/ iFrame fallback.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/derekr/async-form",
+  "repository": {
+    "url": "https://github.com/derekr/async-form"
+  },
+  "main": "./lib/index.js",
+  "scripts": {
+    "start": "beefy ../lib/index.js:async-form.js --cwd ./examples -- -r ./lib/index.js:async-form",
+    "test": "testling -u"
+  },
+  "devDependencies": {
+    "beefy": "~0.4.1",
+    "browserify": "~2.26.0",
+    "tap": "~0.3.1",
+    "testling": "~1.5.1",
+    "tape": "~1.0.4",
+    "multiparty": "~2.1.7"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": ">=0.6"
+  },
+  "dependencies": {
+    "deep-extend": "~0.2.5"
+  },
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "ie8",
+      "ie9",
+      "ff/13",
+      "chrome/20"
+    ],
+    "server": "./bin/server.js"
+  }
+}
