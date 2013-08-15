@@ -5,27 +5,18 @@ var test = require('tape');
 var uploadXHR = require('../lib/upload-xhr');
 
 test('test on ready state callbacks', function (t) {
-    t.plan(5);
+    t.plan(2);
 
     var options = {
         'action': '/',
-        'responseType': 'json',
-        'xhr': {
-            'opened': function openedTest (e) {
-                t.equal(e.target.readyState, 1, '"opened" callback fired');
-            },
-
-            'loading': function loadingTest (e) {
-                t.equal(e.target.readyState, 3, '"loading" callback fired');
-            },
-
-            'done': function doneTest (e) {
-                t.equal(e.target.readyState, 4, '"done" callback fired');
-            }
+        'method': 'POST',
+        'headers': {
+            'Accept': 'application/json'
         },
-        'success': function success (res) {
-            t.equal(res.fields.text, 'bleep bloop', '"text" posted ok');
-            t.equal(res.files.file.originalFilename, 'blob', '"file" posted ok')
+        'success': function success (err, res, body) {
+            body = JSON.parse(body);
+            t.equal(body.fields.text, 'bleep bloop', '"text" posted ok');
+            t.equal(body.files.file.originalFilename, 'blob', '"file" posted ok')
         }
     };
 
