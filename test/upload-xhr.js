@@ -2,9 +2,9 @@ if (typeof FormData === 'undefined') return; // don't run test for browsers that
 
 var test = require('tape');
 
-var uploadXHR = require('../lib/upload-xhr');
+var xhrForm = require('../lib/upload-xhr');
 
-test('test on ready state callbacks', function (t) {
+test('test simple xhr request', function (t) {
     t.plan(2);
 
     var options = {
@@ -16,7 +16,7 @@ test('test on ready state callbacks', function (t) {
         'success': function success (err, res, body) {
             body = JSON.parse(body);
             t.equal(body.fields.text, 'bleep bloop', '"text" posted ok');
-            t.equal(body.files.file.originalFilename, 'blob', '"file" posted ok')
+            t.equal(body.files.file.originalFilename, 'blob', '"file" posted ok');
         }
     };
 
@@ -24,5 +24,5 @@ test('test on ready state callbacks', function (t) {
     data.append('file', new Blob(["bleep bloop"], { "type" : "text/plain" }));
     data.append('text', 'bleep bloop');
     
-    uploadXHR(data, options);
+    xhrForm(data, options);
 });
