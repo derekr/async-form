@@ -10,7 +10,8 @@
   "main": "./lib/index.js",
   "scripts": {
     "start": "beefy ../lib/index.js:async-form.js --cwd ./examples -- -r ./lib/index.js:async-form",
-    "test": "testling -u"
+    "test": "node test/*.js",
+    "testling": "testling"
   },
   "devDependencies": {
     "beefy": "~0.4.1",
@@ -19,7 +20,8 @@
     "testling": "~1.5.1",
     "tape": "~1.0.4",
     "multiparty": "~2.1.7",
-    "xhr": "~1.2.3"
+    "xhr": "~1.2.3",
+    "tapedeck": "~0.3.4"
   },
   "optionalDependencies": {},
   "engines": {
@@ -33,8 +35,8 @@
     "browsers": [
       "ie8",
       "ie9",
-      "ff/13",
-      "chrome/20"
+      "ff/23",
+      "chrome/28"
     ],
     "server": "./bin/server.js"
   }

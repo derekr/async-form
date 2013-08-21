@@ -1,8 +1,8 @@
-var test = require('tape');
+var test     = require('tape');
 
 var iform = require('../lib/upload-iframe');
 
-test('test simpe iframe', function (t) {
+test('test simple iframe', function (t) {
     t.plan(5);
 
     var options = {
