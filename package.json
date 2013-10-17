@@ -20,15 +20,11 @@
     "tap": "~0.3.1",
     "tape": "~1.0.4",
     "tapedeck": "~0.3.4",
-    "testling": "~1.5.1",
-    "xhr": "~1.2.3"
+    "testling": "~1.5.1"
   },
   "optionalDependencies": {},
   "engines": {
     "node": ">=0.6"
-  },
-  "dependencies": {
-    "deep-extend": "~0.2.5"
   },
   "testling": {
     "files": "test/*.js",
@@ -39,5 +35,8 @@
       "chrome/28"
     ],
     "server": "./bin/server.js"
+  },
+  "dependencies": {
+    "lodash": "~2.2.0"
   }
 }
