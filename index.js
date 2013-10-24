@@ -5,10 +5,13 @@
  * @author drk <drk@diy.org>
  */
 
-var uploadXHR    = require('./upload-xhr');
-var uploadIFrame = require('./upload-iframe');
+/**
+ * Lib
+ */
+var uploadXHR    = require('./lib/upload-xhr');
+var uploadIFrame = require('./lib/upload-iframe');
 
-function callbackStub () {};
+function callbackStub () {}
 
 var uploader = {
     'options': {
@@ -22,7 +25,7 @@ var uploader = {
 
     'setOptions': function setOptions (options) {
         options = options || {};
-        
+
         this.options.iframeId     = options.iframeId || this.options.iframeId;
         this.options.action       = options.action || this.$form.getAttribute('action') || this.options.action;
         this.options.method       = options.method || this.options.method;
@@ -56,13 +59,6 @@ var uploader = {
     }
 };
 
-function extendObj(obj1, obj2){
-    var obj3 = {};
-    for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
-    for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
-    return obj3;
-}
-
 /**
  * Constructor
  */
@@ -70,7 +66,7 @@ function asyncForm ($form, options) {
     uploader.setOptions(options);
     uploader.setForm($form);
     uploader.upload();
-};
+}
 
 /**
  * Export

@@ -1,5 +1,5 @@
-generator:
-	@echo Installing dependencies...
-	npm install
+hook:
+	jshint ./lib/*.js
+	jshint index.js
 
-.PHONY: generator
+.PHONY: hook

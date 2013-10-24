@@ -8,7 +8,7 @@ var server = http.createServer(function (req, res) {
         
         form.parse(req, function(err, fields, files) {
             res.writeHead(200, {'content-type': 'application/json'});
-            fs.readFile(files.file.path, function (err, data) {
+            fs.readFile(files.file.path, function () {
                 res.write(JSON.stringify({
                     'fields': fields,
                     'files': files
@@ -22,4 +22,4 @@ var server = http.createServer(function (req, res) {
 
 });
 
-server.listen(parseInt(process.env.PORT));
+server.listen(parseInt(process.env.PORT, 10));
